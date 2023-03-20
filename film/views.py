@@ -1,12 +1,11 @@
-from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView
 from .models import Films, Genre, Poster, Director
 from .serializers import FilmSerializer, GenreSerializer, PosterSerializer, DirectorSerializer
 
 
-class FilmList(ListAPIView):
+class FilmList(ListCreateAPIView):
     queryset = Films.objects.all()
     serializer_class = FilmSerializer
-
 
 
 class FilmView(RetrieveUpdateDestroyAPIView):
@@ -14,7 +13,7 @@ class FilmView(RetrieveUpdateDestroyAPIView):
     serializer_class = FilmSerializer
 
 
-class GenreList(ListAPIView):
+class GenreList(ListCreateAPIView):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
 
@@ -24,7 +23,7 @@ class GenreView(RetrieveUpdateDestroyAPIView):
     serializer_class = GenreSerializer
 
 
-class PosterList(ListAPIView):
+class PosterList(ListCreateAPIView):
     queryset = Poster.objects.all()
     serializer_class = PosterSerializer
 
@@ -34,7 +33,7 @@ class PosterView(RetrieveUpdateDestroyAPIView):
     serializer_class = PosterSerializer
 
 
-class DirectorList(ListAPIView):
+class DirectorList(ListCreateAPIView):
     queryset = Director.objects.all()
     serializer_class = DirectorSerializer
 
